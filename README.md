@@ -2,7 +2,7 @@
 
 > **An AI-Powered CRM & Operations Platform for Oil & Gas Mineral Acquisitions**
 
-**Live demo:** [LIVE_DEMO_URL](LIVE_DEMO_URL)
+**Live demo:** [mineral-ops-crm.vercel.app](https://mineral-ops-crm.vercel.app/)
 
 > The demo runs on **synthetic sample data** (5,000+ generated records). The production version was built for a Texas mineral acquisitions company and handled 15,000+ real records; no client data is included in this repository.
 
