@@ -1,0 +1,462 @@
+# Due Diligence Module
+
+> Validate acquisition readiness by verifying ownership, property data, documentation, commercial viability, and operational requirements before Title Review.
+
+---
+
+# Overview
+
+The Due Diligence module is the operational quality control checkpoint within the mineral acquisition lifecycle.
+
+After a Purchase & Sale Agreement (PSA) has been executed, every acquisition enters Due Diligence. During this stage, acquisition specialists verify ownership information, property records, lease data, operator details, legal descriptions, supporting documentation, and overall acquisition risk before forwarding the transaction to Title Review.
+
+The module ensures that incomplete or high-risk acquisitions are identified early, reducing legal issues, unnecessary title costs, and delayed closings.
+
+---
+
+# Objectives
+
+The Due Diligence module enables users to:
+
+- Verify owner information
+- Validate property information
+- Review executed PSA
+- Confirm lease and operator data
+- Verify county records
+- Review supporting documentation
+- Identify acquisition risks
+- Generate operational checklists
+- Recommend Go / No-Go decisions
+- Prepare transactions for Title Review
+
+---
+
+# Key Features
+
+## Acquisition Readiness Review
+
+Every Due Diligence record includes:
+
+- Due Diligence Number
+- Deal
+- Owner
+- Asset
+- Reviewer
+- Assigned User
+- Priority
+- Status
+- Due Date
+- Completion Date
+- Risk Score
+- Recommendation
+- Notes
+
+---
+
+## Owner Verification
+
+Verify:
+
+- Owner Name
+- Mailing Address
+- Phone Number
+- Email
+- Royalty Interest
+- Mineral Interest
+- Ownership Percentage
+
+---
+
+## Property Verification
+
+Review:
+
+- County
+- State
+- Lease
+- Unit
+- Well
+- API Number
+- Legal Description
+- Acreage
+
+---
+
+## Operator Verification
+
+Validate:
+
+- Current Operator
+- Production Status
+- Well Status
+- Lease Status
+- Field Information
+
+---
+
+## PSA Review
+
+Confirm:
+
+- Executed PSA
+- Purchase Price
+- Effective Date
+- Seller Information
+- Buyer Information
+- Legal Description
+- Signatures
+- Exhibits
+
+---
+
+## Supporting Documents
+
+Required documents may include:
+
+- Executed PSA
+- Ownership Reports
+- County Records
+- Lease Documents
+- Maps
+- Royalty Statements
+- Division Orders
+- Prior Deeds
+- Affidavits
+
+---
+
+# Due Diligence Checklist
+
+| Category | Verification |
+|-----------|--------------|
+| Executed PSA | ✅ |
+| Owner Verified | ✅ |
+| Mailing Address Verified | ✅ |
+| Lease Verified | ✅ |
+| County Verified | ✅ |
+| Operator Verified | ✅ |
+| API Number Verified | ✅ |
+| Legal Description Verified | ✅ |
+| Required Documents Uploaded | ✅ |
+| Risk Assessment Completed | ✅ |
+
+---
+
+# Risk Assessment
+
+Each acquisition receives an operational risk score.
+
+## Risk Levels
+
+### Low
+
+Ready for Title Review.
+
+---
+
+### Medium
+
+Minor issues requiring follow-up.
+
+---
+
+### High
+
+Significant concerns requiring management review.
+
+---
+
+### Critical
+
+Acquisition should not proceed until resolved.
+
+---
+
+# Recommendation
+
+Every Due Diligence review concludes with one recommendation:
+
+- Proceed to Title Review
+- Proceed with Conditions
+- Additional Research Required
+- Hold Acquisition
+- Reject Acquisition
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Reviewer Filter
+- Risk Filter
+- New Due Diligence Review
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| DD Number | Due Diligence ID |
+| Deal | Linked acquisition |
+| Owner | Mineral owner |
+| County | Property county |
+| Reviewer | Assigned reviewer |
+| Risk | Risk level |
+| Recommendation | Go / No-Go |
+| Status | Current status |
+| Actions | View / Edit |
+
+---
+
+# Due Diligence Workflow
+
+```mermaid
+flowchart TD
+
+PSAExecuted
+
+PSAExecuted
+--> DueDiligence
+
+DueDiligence
+--> OwnerVerification
+
+OwnerVerification
+--> PropertyVerification
+
+PropertyVerification
+--> OperatorVerification
+
+OperatorVerification
+--> DocumentReview
+
+DocumentReview
+--> RiskAssessment
+
+RiskAssessment
+--> Recommendation
+
+Recommendation
+--> Go
+
+Recommendation
+--> Hold
+
+Recommendation
+--> Reject
+
+Go
+--> TitleReview
+
+Hold
+--> AdditionalResearch
+
+Reject
+--> CancelDeal
+```
+
+---
+
+# Lifecycle
+
+1. PSA Executed
+2. Create Due Diligence Record
+3. Assign Reviewer
+4. Verify Owner
+5. Verify Property
+6. Review Documents
+7. Assess Risk
+8. Complete Checklist
+9. Submit Recommendation
+10. Forward to Title Review
+
+---
+
+# Related Modules
+
+The Due Diligence module integrates with:
+
+- Deals
+- Assets
+- Documents
+- Campaigns
+- Tasks
+- Title Review
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+DueDiligence
+│
+├── Deal
+├── Owner
+├── Asset
+├── County
+├── Operator
+├── PSA
+├── Documents
+├── Tasks
+├── Reviewer
+└── Notes
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Override approvals
+- Archive reviews
+
+---
+
+## Acquisition Manager
+
+- Assign reviewers
+- Review findings
+- Approve recommendations
+
+---
+
+## Due Diligence Specialist
+
+- Complete checklist
+- Upload documents
+- Update findings
+- Submit recommendations
+
+---
+
+## Read Only
+
+- View records
+
+---
+
+# Business Rules
+
+## Rule 1
+
+A Due Diligence review cannot begin until the PSA has been fully executed.
+
+---
+
+## Rule 2
+
+Every required checklist item must be completed before submission.
+
+---
+
+## Rule 3
+
+Deals with a **Critical** risk rating require Acquisition Manager approval.
+
+---
+
+## Rule 4
+
+Only reviews marked **Proceed to Title Review** may advance to the Title Review module.
+
+---
+
+## Rule 5
+
+Every review action is recorded in the audit log.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Due Diligence record creation after PSA execution
+- Reviewer assignment
+- Checklist generation
+- Missing document detection
+- Reminder notifications
+- Risk escalation alerts
+- Automatic Title Review creation after approval
+- Dashboard KPI updates
+
+---
+
+# AI Opportunities
+
+Future AI capabilities include:
+
+- AI PSA review
+- AI lease summaries
+- AI operator research
+- AI legal description comparison
+- AI ownership consistency checks
+- AI acquisition risk scoring
+- AI Go / No-Go recommendations
+- AI executive Due Diligence summary
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/due-diligence | List reviews |
+| GET | /api/due-diligence/{id} | Retrieve review |
+| POST | /api/due-diligence | Create review |
+| PUT | /api/due-diligence/{id} | Update review |
+| PATCH | /api/due-diligence/{id}/status | Update review status |
+| DELETE | /api/due-diligence/{id} | Archive review |
+
+---
+
+# Reports
+
+Available reports include:
+
+- Due Diligence Pipeline
+- Outstanding Reviews
+- High Risk Acquisitions
+- Average Review Time
+- Reviews by County
+- Reviews by Reviewer
+- Go / No-Go Analysis
+- Risk Distribution
+
+---
+
+# Screenshot
+
+![Due Diligence](../../assets/screenshots/13-due-diligence.png)
+
+---
+
+# Future Enhancements
+
+- Texas Railroad Commission (RRC) integration
+- GIS property validation
+- County appraisal district integration
+- AI-powered property research
+- Automated owner verification
+- Production history analysis
+- Interactive Due Diligence scorecards
+- Third-party data provider integrations
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- DOCUMENTS.md
+- TASKS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- REPORTS.md

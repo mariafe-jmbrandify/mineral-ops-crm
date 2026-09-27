@@ -1,0 +1,387 @@
+# Curative Module
+
+> Manage, track, and resolve title defects to prepare acquisitions for successful closing.
+
+---
+
+# Overview
+
+The Curative module manages the legal and operational process of resolving title defects identified during Title Review.
+
+Curative work ensures ownership is legally verified, documentation is complete, and all issues preventing a transaction from closing have been resolved.
+
+Every Curative Item is linked to a Deal, Asset, Owner, and Title Review, providing complete visibility into outstanding legal requirements.
+
+---
+
+# Objectives
+
+The Curative module enables users to:
+
+- Track title defects
+- Assign curative tasks
+- Collect missing legal documents
+- Monitor completion status
+- Coordinate with owners and attorneys
+- Prepare title for closing
+- Maintain legal audit history
+
+---
+
+# Key Features
+
+## Curative Item Management
+
+Each Curative Item contains:
+
+- Curative Number
+- Deal
+- Owner
+- Asset
+- Title Review
+- Assigned User
+- Priority
+- Due Date
+- Status
+- Notes
+
+---
+
+## Curative Categories
+
+Supported categories include:
+
+### Probate
+
+- Estate administration
+- Letters Testamentary
+- Letters of Administration
+- Probate Orders
+
+---
+
+### Trust
+
+- Trust Agreement
+- Trustee Certification
+- Successor Trustee Documents
+
+---
+
+### Affidavits
+
+- Affidavit of Heirship
+- Affidavit of Identity
+- Affidavit of Non-Production
+- Affidavit of Ownership
+
+---
+
+### Deeds
+
+- Correction Deed
+- Warranty Deed
+- Quitclaim Deed
+- Mineral Deed
+
+---
+
+### Ownership
+
+- Missing Owner
+- Incorrect Decimal Interest
+- Ownership Conflict
+- Missing Assignment
+
+---
+
+### Legal
+
+- Missing Signatures
+- Incorrect Legal Description
+- Court Orders
+- Divorce Decree
+
+---
+
+# Curative Statuses
+
+- Open
+- Waiting on Owner
+- Waiting on Attorney
+- In Progress
+- Under Review
+- Completed
+- Closed
+
+---
+
+# Priority Levels
+
+| Priority | Description |
+|----------|-------------|
+| Critical | Blocks Closing |
+| High | Must be completed before approval |
+| Medium | Important but non-blocking |
+| Low | Informational |
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Priority Filter
+- Assigned User
+- Create Curative Item
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Curative ID | Unique identifier |
+| Owner | Mineral owner |
+| Deal | Linked acquisition |
+| Category | Curative type |
+| Priority | Critical / High / Medium / Low |
+| Assigned To | Responsible user |
+| Due Date | Completion deadline |
+| Status | Current status |
+| Actions | View / Edit |
+
+---
+
+# Curative Workflow
+
+```mermaid
+flowchart TD
+
+TitleReviewCompleted
+
+TitleReviewCompleted
+--> CurativeCreated
+
+CurativeCreated
+--> AssignReviewer
+
+AssignReviewer
+--> RequestDocuments
+
+RequestDocuments
+--> ReceiveDocuments
+
+ReceiveDocuments
+--> LegalReview
+
+LegalReview
+--> Approved
+
+Approved
+--> Closing
+
+LegalReview
+--> AdditionalRequirements
+```
+
+---
+
+# Curative Lifecycle
+
+1. Title defect identified
+2. Create Curative Item
+3. Assign responsible team member
+4. Request supporting documents
+5. Receive owner documentation
+6. Legal review
+7. Approve curative
+8. Mark complete
+9. Release to Closing
+
+---
+
+# Related Modules
+
+The Curative module integrates with:
+
+- Deals
+- Assets
+- Documents
+- Title Review
+- Closing
+- Payments
+
+---
+
+# Database Relationships
+
+```text
+Curative Item
+│
+├── Deal
+├── Owner
+├── Asset
+├── Title Review
+├── Documents
+├── Notes
+├── Tasks
+└── User
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Assign curative items
+- Close items
+
+---
+
+## Title Attorney
+
+- Review documents
+- Approve curative
+- Request additional documentation
+
+---
+
+## Landman
+
+- Upload documents
+- Communicate with owners
+- Update status
+
+---
+
+## Closing Team
+
+- View completed curative
+- Verify completion
+
+---
+
+## Read Only
+
+- View records
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Every Curative Item must originate from a Title Review finding.
+
+---
+
+## Rule 2
+
+Critical Curative Items block Closing.
+
+---
+
+## Rule 3
+
+Completed Curative Items require legal approval.
+
+---
+
+## Rule 4
+
+All uploaded documents are linked to the Curative Item.
+
+---
+
+## Rule 5
+
+Every status change is recorded in the audit log.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Task creation
+- Owner notification
+- Reminder emails
+- Due date alerts
+- Status synchronization
+- Audit logging
+- Closing eligibility update
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- AI document classification
+- Curative recommendation engine
+- Missing document detection
+- Probate checklist generation
+- Trust document analysis
+- Ownership conflict detection
+- AI-generated legal summaries
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/curative | List curative items |
+| GET | /api/curative/{id} | Retrieve curative item |
+| POST | /api/curative | Create item |
+| PUT | /api/curative/{id} | Update item |
+| PATCH | /api/curative/{id}/status | Update status |
+| DELETE | /api/curative/{id} | Archive item |
+
+---
+
+# Reports
+
+Available reports include:
+
+- Open Curative Items
+- Critical Curative Report
+- Curative by County
+- Curative by Attorney
+- Aging Report
+- Completed Curative
+- Closing Blockers
+
+---
+
+# Screenshot
+
+![Curative](../../assets/screenshots/08-curative.png)
+
+---
+
+# Future Enhancements
+
+- AI legal document review
+- Probate workflow automation
+- Electronic signature integration
+- Court record integration
+- Automated reminder sequences
+- Curative dashboard
+- Attorney collaboration portal
+- Bulk curative updates
+
+---
+
+# Related Documentation
+
+- TITLE_REVIEW.md
+- DEALS.md
+- DOCUMENTS.md
+- CLOSING.md
+- PAYMENTS.md

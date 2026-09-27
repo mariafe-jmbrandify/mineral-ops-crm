@@ -1,0 +1,383 @@
+# Documents Module
+
+> Centralized document repository for managing all acquisition-related files throughout the mineral acquisition lifecycle.
+
+---
+
+# Overview
+
+The Documents module provides a secure, centralized repository for all files associated with Deals, Assets, Owners, Campaigns, Title Review, Curative, Closing, and Payments.
+
+It eliminates scattered files across email, shared drives, and local storage by maintaining version-controlled, searchable, and auditable records.
+
+Every uploaded document is linked to one or more business records and tracked throughout its lifecycle.
+
+---
+
+# Objectives
+
+The Documents module enables users to:
+
+- Store acquisition documents securely
+- Link documents to operational records
+- Track document status
+- Maintain version history
+- Support title examination
+- Organize closing packages
+- Improve document search
+- Enable AI-powered document analysis
+
+---
+
+# Features
+
+## Document Repository
+
+Store and organize:
+
+- Purchase & Sale Agreements (PSA)
+- Amendments
+- Deeds
+- Assignments
+- Title Opinions
+- Probate Documents
+- Affidavits
+- Division Orders
+- Royalty Statements
+- Closing Documents
+- Invoices
+- Correspondence
+- Maps
+- Internal Notes
+
+---
+
+## Search & Filters
+
+Search by:
+
+- Document Name
+- Owner
+- Deal
+- Asset
+- Lease
+- County
+- Campaign
+- Uploaded By
+
+Filter by:
+
+- Pending
+- Sent
+- Signed / Received
+- Filed
+
+---
+
+## Supported File Types
+
+- PDF
+- DOCX
+- XLSX
+- CSV
+- JPG
+- PNG
+- TIFF
+- ZIP
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Upload Document
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Document | File Name |
+| Type | Document Type |
+| Linked To | Related Record |
+| Date | Upload Date |
+| Status | Current Status |
+| Notes / Link | Description |
+| Actions | Edit / Delete |
+
+---
+
+# Document Categories
+
+| Category | Examples |
+|------------|----------|
+| PSA | Purchase Agreements, Amendments |
+| Title | Title Opinion, Title Commitment |
+| Curative | Affidavits, Probate, Correction Deeds |
+| Closing | Closing Statement, Wire Instructions |
+| Financial | Invoices, Payment Requests |
+| Property | Lease Documents, Unit Information |
+| Correspondence | Emails, Letters |
+| Reports | Ownership Reports, Research |
+| Other | Miscellaneous Documents |
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart LR
+
+Upload
+--> Metadata
+
+Metadata
+--> LinkRecord
+
+LinkRecord
+--> Review
+
+Review
+--> Status
+
+Status
+--> Repository
+
+Repository
+--> Retrieval
+
+Repository
+--> AIAnalysis
+```
+
+---
+
+# Document Lifecycle
+
+1. Upload document
+2. Select category
+3. Link to related record
+4. Add metadata
+5. Review
+6. Approve (if required)
+7. File securely
+8. Archive when inactive
+
+---
+
+# Metadata
+
+Each document includes:
+
+- Document Name
+- Category
+- Linked Record
+- Owner
+- Deal
+- Asset
+- Campaign
+- Uploaded By
+- Upload Date
+- Version
+- Status
+- Description
+- Tags
+
+---
+
+# Related Modules
+
+The Documents module integrates with:
+
+- Dashboard
+- Deals
+- Mailer Lists
+- Campaigns
+- Assets
+- Title Review
+- Curative
+- Closing
+- Payments
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+Document
+│
+├── Deal
+├── Asset
+├── Owner
+├── Campaign
+├── PSA
+├── Title Review
+├── Curative
+├── Closing
+└── Payment
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Delete documents
+- Manage versions
+
+---
+
+## Acquisition Team
+
+- Upload
+- Edit metadata
+- Download
+- View
+
+---
+
+## Title Team
+
+- Upload title documents
+- Edit
+- View
+
+---
+
+## Closing Team
+
+- Upload closing package
+- Download
+- View
+
+---
+
+## Read Only
+
+- View
+- Download
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Every document must be linked to at least one business record.
+
+---
+
+## Rule 2
+
+Filed documents become read-only.
+
+---
+
+## Rule 3
+
+Document deletion is restricted to Administrators.
+
+---
+
+## Rule 4
+
+Each upload creates a new audit log entry.
+
+---
+
+## Rule 5
+
+Version history must be preserved.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Auto-tagging
+- Version creation
+- OCR processing
+- AI document summaries
+- Metadata extraction
+- Approval notifications
+- Audit logging
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- OCR data extraction
+- AI document classification
+- Contract summarization
+- Missing document detection
+- Title issue identification
+- Clause comparison
+- Semantic document search
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/documents | List documents |
+| GET | /api/documents/{id} | Retrieve document |
+| POST | /api/documents | Upload document |
+| PUT | /api/documents/{id} | Update metadata |
+| DELETE | /api/documents/{id} | Archive document |
+| PATCH | /api/documents/{id}/status | Update status |
+
+---
+
+# Reporting
+
+Available reports include:
+
+- Documents by Deal
+- Missing Documents
+- Expiring Documents
+- Uploaded by User
+- Document Status Summary
+- Version History
+- Audit Report
+
+---
+
+# Screenshot
+
+![Documents](../../assets/screenshots/06-documents.png)
+
+---
+
+# Future Enhancements
+
+- Full-text OCR search
+- Drag-and-drop upload
+- Bulk document import
+- AI contract review
+- Electronic signature integration
+- Secure external document sharing
+- Document retention policies
+- Watermarking and access tracking
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- DEALS.md
+- ASSETS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md

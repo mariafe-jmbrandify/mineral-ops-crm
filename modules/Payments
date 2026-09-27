@@ -1,0 +1,390 @@
+# Payments Module
+
+> Manage funding, payment approvals, disbursements, and reconciliation for completed mineral acquisitions.
+
+---
+
+# Overview
+
+The Payments module manages the financial settlement of completed mineral acquisitions.
+
+After a Closing has been approved, the Payments module tracks payment requests, approvals, funding, payment methods, reconciliation, and final payment confirmation.
+
+Every payment is linked to its corresponding Deal, Closing, Owner, and Asset to provide complete financial traceability and auditability.
+
+---
+
+# Objectives
+
+The Payments module enables users to:
+
+- Create payment requests
+- Track payment approvals
+- Process acquisition funding
+- Record payment methods
+- Monitor payment status
+- Reconcile completed payments
+- Generate accounting reports
+- Maintain financial audit logs
+
+---
+
+# Key Features
+
+## Payment Requests
+
+Each Payment Request includes:
+
+- Payment Number
+- Deal
+- Closing
+- Owner
+- Asset
+- Purchase Price
+- Adjustments
+- Net Amount
+- Payment Method
+- Requested By
+- Approved By
+- Payment Date
+- Notes
+
+---
+
+## Payment Methods
+
+Supported payment methods include:
+
+- Check
+- Wire Transfer
+- ACH
+- Cashier's Check
+- Escrow
+- Other
+
+---
+
+## Payment Statuses
+
+Available statuses:
+
+- Draft
+- Pending Approval
+- Approved
+- Scheduled
+- Processing
+- Paid
+- Cancelled
+- Reconciled
+
+---
+
+## Approval Workflow
+
+Every payment follows a standardized approval process.
+
+Required approvals may include:
+
+- Closing Coordinator
+- Accounting
+- Operations Manager
+- Administrator (optional)
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Payment Method Filter
+- New Payment Request
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Payment ID | Unique payment number |
+| Deal | Linked acquisition |
+| Owner | Mineral owner |
+| Amount | Net payment amount |
+| Method | Check / Wire / ACH |
+| Status | Current payment status |
+| Payment Date | Date processed |
+| Actions | View / Edit |
+
+---
+
+# Payment Workflow
+
+```mermaid
+flowchart TD
+
+ClosingApproved
+
+ClosingApproved
+--> PaymentRequest
+
+PaymentRequest
+--> AccountingReview
+
+AccountingReview
+--> Approval
+
+Approval
+--> Funding
+
+Funding
+--> PaymentSent
+
+PaymentSent
+--> Confirmation
+
+Confirmation
+--> Reconciliation
+
+Reconciliation
+--> Completed
+```
+
+---
+
+# Payment Lifecycle
+
+1. Closing Approved
+2. Create Payment Request
+3. Accounting Review
+4. Manager Approval
+5. Schedule Funding
+6. Process Payment
+7. Confirm Receipt
+8. Reconcile Transaction
+9. Archive Payment Record
+
+---
+
+# Financial Information
+
+Each payment stores:
+
+- Purchase Price
+- Adjustments
+- Taxes
+- Fees
+- Net Payment
+- Funding Account
+- Payment Reference
+- Transaction Number
+- Reconciliation Date
+
+---
+
+# Related Modules
+
+The Payments module integrates with:
+
+- Deals
+- Closing
+- Documents
+- Assets
+- Reports
+- Dashboard
+
+---
+
+# Database Relationships
+
+```text
+Payment
+│
+├── Deal
+├── Closing
+├── Owner
+├── Asset
+├── Documents
+├── Accounting Approval
+├── Transaction
+└── User
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Approve payments
+- Reverse payments
+- Archive records
+
+---
+
+## Accounting
+
+- Review requests
+- Approve payments
+- Process funding
+- Reconcile payments
+
+---
+
+## Closing Coordinator
+
+- Create payment requests
+- View payment status
+
+---
+
+## Acquisition Manager
+
+- View financial status
+- Approve exceptions
+
+---
+
+## Read Only
+
+- View payment history
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Payments cannot be created until the Closing status is **Closed**.
+
+---
+
+## Rule 2
+
+Net Payment must match the approved Closing Settlement.
+
+---
+
+## Rule 3
+
+Only Accounting may mark a payment as **Paid**.
+
+---
+
+## Rule 4
+
+Cancelled payments require an explanation and manager approval.
+
+---
+
+## Rule 5
+
+Every payment action is recorded in the audit log.
+
+---
+
+## Rule 6
+
+Reconciled payments become read-only.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Payment number generation
+- Approval routing
+- Funding notifications
+- Accounting reminders
+- Payment confirmations
+- Dashboard updates
+- Audit logging
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- Payment anomaly detection
+- Duplicate payment detection
+- Funding recommendations
+- Cash flow forecasting
+- AI financial summaries
+- Payment risk analysis
+- Automated reconciliation suggestions
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/payments | List payments |
+| GET | /api/payments/{id} | Retrieve payment |
+| POST | /api/payments | Create payment request |
+| PUT | /api/payments/{id} | Update payment |
+| PATCH | /api/payments/{id}/status | Update payment status |
+| DELETE | /api/payments/{id} | Archive payment |
+
+---
+
+# Reports
+
+Available reports include:
+
+- Pending Payments
+- Approved Payments
+- Payments by County
+- Payments by Operator
+- Payments by Month
+- Payment Method Summary
+- Reconciliation Report
+- Financial Audit Report
+
+---
+
+# Audit Trail
+
+Every payment records:
+
+- Created By
+- Created Date
+- Approval History
+- Status Changes
+- Funding Confirmation
+- Reconciliation Details
+- Last Modified By
+- Last Modified Date
+
+---
+
+# Screenshot
+
+![Payments](../../assets/screenshots/10-payments.png)
+
+---
+
+# Future Enhancements
+
+- QuickBooks Online integration
+- ACH payment automation
+- Positive Pay support
+- Escrow management
+- Electronic remittance advice
+- Multi-currency support
+- Owner payment portal
+- AI-powered financial forecasting
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- DOCUMENTS.md
+- REPORTS.md

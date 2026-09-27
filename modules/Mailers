@@ -1,0 +1,351 @@
+# Mailer Lists Module
+
+> Centralized repository of mineral owner mailing records used to generate acquisition campaigns and track owner outreach.
+
+---
+
+# Overview
+
+The Mailer Lists module stores and manages owner contact records prepared for direct mail campaigns. It serves as the operational bridge between prospect research and active acquisition efforts.
+
+Each Mailer Record represents a potential acquisition opportunity tied to an owner, property, lease, and campaign.
+
+The module tracks mailing status, responses, returned mail, and conversion into active Deals.
+
+---
+
+# Objectives
+
+The Mailer Lists module enables users to:
+
+- Maintain owner mailing records
+- Organize mailing campaigns
+- Track delivery status
+- Record owner responses
+- Identify returned mail
+- Convert qualified owners into Deals
+- Measure campaign effectiveness
+
+---
+
+# Features
+
+## Owner Records
+
+Each mailer record stores:
+
+- Owner Name
+- Royalty Interest (RI)
+- Mailing Address
+- City
+- State
+- ZIP Code
+- Lease Name
+- County
+- Total Offer
+- Campaign
+- Status
+- Notes
+
+---
+
+## Search & Filters
+
+Search by:
+
+- Owner Name
+- Lease Name
+- County
+- Address
+
+Filter by:
+
+- All Statuses
+- Not Sent
+- Sent
+- Delivered
+- Responded
+- Returned (RTS)
+- Dead
+
+---
+
+## Status Definitions
+
+### Not Sent
+
+Owner is queued for a future mailing.
+
+---
+
+### Sent
+
+Letter has been mailed.
+
+---
+
+### Delivered
+
+Mail delivery has been confirmed.
+
+---
+
+### Responded
+
+Owner has contacted the company regarding the offer.
+
+This may trigger Deal creation.
+
+---
+
+### Returned (RTS)
+
+Mail returned to sender.
+
+Requires address verification.
+
+---
+
+### Dead
+
+Owner is no longer eligible for future campaigns.
+
+Examples:
+
+- Duplicate owner
+- Deceased
+- Invalid address
+- Requested removal
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- New Mailer Record
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Owner | Mineral owner |
+| RI | Royalty Interest |
+| Address | Mailing address |
+| Lease Name | Associated lease |
+| County | Property county |
+| Total Offer | Offer amount |
+| Campaign | Linked campaign |
+| Status | Mailing status |
+| Actions | Edit / Delete |
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart LR
+
+ImportOwners
+--> MailerRecord
+
+MailerRecord
+--> Campaign
+
+Campaign
+--> LetterPrinted
+
+LetterPrinted
+--> Sent
+
+Sent
+--> Delivered
+
+Delivered
+--> Responded
+
+Responded
+--> DealCreated
+
+Sent
+--> ReturnedMail
+
+ReturnedMail
+--> AddressResearch
+```
+
+---
+
+# Record Lifecycle
+
+1. Import owner data
+2. Validate mailing address
+3. Assign campaign
+4. Print mail
+5. Ship campaign
+6. Update mailing status
+7. Track responses
+8. Convert to Deal
+
+---
+
+# Related Modules
+
+- Campaigns
+- Deals
+- Assets
+- Documents
+
+---
+
+# Database Relationships
+
+```text
+MailerRecord
+│
+├── Campaign
+├── Owner
+├── Lease
+├── County
+├── Deal
+└── Notes
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+Full access
+
+---
+
+## Acquisition Team
+
+Create
+
+Edit
+
+Assign Campaign
+
+Update Status
+
+---
+
+## Marketing
+
+Manage Campaign Assignments
+
+Update Mailing Status
+
+---
+
+## Read Only
+
+View records
+
+---
+
+# Business Rules
+
+## Rule 1
+
+One owner may have multiple Mailer Records.
+
+---
+
+## Rule 2
+
+A Mailer Record cannot belong to more than one active campaign simultaneously.
+
+---
+
+## Rule 3
+
+Responded records are eligible for Deal creation.
+
+---
+
+## Rule 4
+
+Returned Mail automatically creates an Address Verification task.
+
+---
+
+## Rule 5
+
+Dead records are excluded from future campaign exports.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Campaign assignment
+- Mailing status updates
+- Duplicate detection
+- Returned mail notifications
+- Response notifications
+- Deal creation trigger
+- Activity logging
+
+---
+
+# AI Opportunities
+
+Future AI functionality:
+
+- Duplicate owner detection
+- Address validation
+- Campaign targeting recommendations
+- Owner response prediction
+- Mailing optimization
+- AI contact summaries
+- Response sentiment analysis
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/mailers | List records |
+| GET | /api/mailers/{id} | Retrieve record |
+| POST | /api/mailers | Create record |
+| PUT | /api/mailers/{id} | Update record |
+| DELETE | /api/mailers/{id} | Archive record |
+| PATCH | /api/mailers/{id}/status | Update mailing status |
+
+---
+
+# Screenshot
+
+![Mailer Lists](../../assets/screenshots/03-mailer-lists.png)
+
+---
+
+# Future Enhancements
+
+- USPS Address Verification
+- Bulk Import Wizard
+- Excel Import Templates
+- Smart Duplicate Detection
+- AI Address Cleanup
+- Campaign Heat Maps
+- Geographic Distribution View
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- DEALS.md
+- CAMPAIGNS.md
+- ASSETS.md
+- DOCUMENTS.md

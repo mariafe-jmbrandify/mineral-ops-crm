@@ -1,0 +1,144 @@
+# =============================================================
+#  Oil & Gas OS — .gitignore
+#  Covers: index.html app, Google Apps Script (clasp),
+#  Python tooling, docs, and client data exports
+# =============================================================
+
+# -------------------------------------------------------------
+# 1. SECRETS & CREDENTIALS  (never commit)
+# -------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+client_secret*.json
+service-account*.json
+token.json
+token.pickle
+*.token
+secrets/
+config/secrets.*
+api_keys.*
+
+# Google Apps Script / clasp auth
+.clasprc.json
+.clasp.json.local
+
+# -------------------------------------------------------------
+# 2. CLIENT DATA — owner records, deals, PII
+#    Keep sample/sanitized files in /data/samples/ only
+# -------------------------------------------------------------
+data/*
+!data/samples/
+!data/README.md
+exports/
+imports/
+backups/
+*.csv
+*.tsv
+*.xlsx
+*.xls
+*.xlsm
+*.ods
+!data/samples/*.csv
+!data/samples/*.xlsx
+*.db
+*.sqlite
+*.sqlite3
+*.json.bak
+
+# Signed deal docs (PSAs, deeds, title/curative packets)
+contracts/
+deal-docs/
+title/
+*.signed.pdf
+*_PSA*.pdf
+*_Deed*.pdf
+
+# RRC / spacing verification run outputs
+rrc-output/
+spacing-results/
+logs/
+
+# -------------------------------------------------------------
+# 3. PYTHON
+# -------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+env/
+.python-version
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# -------------------------------------------------------------
+# 4. NODE / FRONTEND (if bundling the CRM or using clasp via npm)
+# -------------------------------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+.cache/
+.parcel-cache/
+.vite/
+out/
+coverage/
+
+# -------------------------------------------------------------
+# 5. TESTING & VERIFICATION (Playwright screenshots, reports)
+# -------------------------------------------------------------
+test-results/
+playwright-report/
+playwright/.cache/
+screenshots/
+*.trace.zip
+
+# -------------------------------------------------------------
+# 6. AUTOMATION PLATFORM EXPORTS (may contain keys/webhooks)
+# -------------------------------------------------------------
+n8n/credentials/
+.n8n/
+make-blueprints/*.private.json
+*.webhook.txt
+
+# -------------------------------------------------------------
+# 7. OS & EDITOR JUNK
+# -------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+*.code-workspace
+
+# -------------------------------------------------------------
+# 8. TEMP / SCRATCH
+# -------------------------------------------------------------
+tmp/
+temp/
+*.tmp
+*.log
+*.bak
+*.old
+~$*
+scratch/

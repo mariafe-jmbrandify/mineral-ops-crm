@@ -1,0 +1,385 @@
+# Title Review Module
+
+> Verify mineral ownership, identify title defects, and prepare acquisitions for closing.
+
+---
+
+# Overview
+
+The Title Review module manages the legal examination of mineral ownership after a Purchase & Sale Agreement (PSA) has been executed.
+
+Its purpose is to confirm ownership, identify title defects, determine curative requirements, and ensure each acquisition is legally ready to close.
+
+This module serves as the bridge between PSA execution and Closing.
+
+---
+
+# Objectives
+
+The Title Review module enables users to:
+
+- Verify mineral ownership
+- Examine chain of title
+- Review probate records
+- Identify ownership discrepancies
+- Track title defects
+- Request curative documents
+- Prepare assets for closing
+- Maintain legal audit history
+
+---
+
+# Key Features
+
+## Ownership Verification
+
+Verify:
+
+- Grantor
+- Grantee
+- Current Owner
+- Heirs
+- Trusts
+- Estates
+
+---
+
+## Chain of Title Review
+
+Track ownership transfers including:
+
+- Deeds
+- Assignments
+- Probate
+- Affidavits
+- Court Orders
+- Divorce Decrees
+
+---
+
+## Mineral Interest Verification
+
+Review
+
+- Net Mineral Acres (NMA)
+- Royalty Interest (RI)
+- Working Interest (WI)
+- Decimal Interest
+- Ownership Percentages
+
+---
+
+## Title Defect Tracking
+
+Examples include:
+
+- Missing Deed
+- Probate Required
+- Incorrect Legal Description
+- Unsigned PSA
+- Trust Documentation
+- Missing Division Order
+- Incorrect Ownership
+- Affidavit Required
+
+---
+
+## Search & Filters
+
+Search by:
+
+- Owner
+- County
+- Lease
+- Unit
+- Operator
+
+Filter by:
+
+- Pending
+- In Review
+- Curative Required
+- Approved
+- Closed
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Create Title Review
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Owner | Mineral Owner |
+| Lease | Lease / Unit |
+| County | County |
+| Title Status | Current Review Status |
+| Curative | Required? |
+| Reviewer | Assigned Reviewer |
+| Due Date | Review Deadline |
+| Actions | View / Edit |
+
+---
+
+# Title Review Workflow
+
+```mermaid
+flowchart TD
+
+PSAExecuted
+
+PSAExecuted
+--> TitleReview
+
+TitleReview
+--> OwnershipVerification
+
+OwnershipVerification
+--> ChainOfTitle
+
+ChainOfTitle
+--> TitleDefects
+
+TitleDefects
+--> Curative
+
+Curative
+--> FinalApproval
+
+FinalApproval
+--> Closing
+```
+
+---
+
+# Review Lifecycle
+
+1. PSA Executed
+2. Create Title Review
+3. Verify Ownership
+4. Examine Chain of Title
+5. Identify Defects
+6. Request Curative
+7. Review Curative Documents
+8. Final Approval
+9. Ready for Closing
+
+---
+
+# Title Statuses
+
+### Pending
+
+Title review has not started.
+
+---
+
+### In Review
+
+Ownership examination is underway.
+
+---
+
+### Curative Required
+
+Legal defects have been identified.
+
+---
+
+### Approved
+
+Title has been approved for Closing.
+
+---
+
+### Closed
+
+Title review is complete.
+
+---
+
+# Related Modules
+
+The Title Review module integrates with:
+
+- Deals
+- Assets
+- Documents
+- Curative
+- Closing
+- Payments
+
+---
+
+# Database Relationships
+
+```text
+Title Review
+│
+├── Deal
+├── Owner
+├── Asset
+├── Documents
+├── Curative Items
+├── Notes
+└── Reviewer
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+Full access
+
+---
+
+## Title Attorney
+
+- Create reviews
+- Edit findings
+- Approve title
+
+---
+
+## Landman
+
+- Upload documents
+- Add notes
+- View records
+
+---
+
+## Closing Team
+
+View approved title reviews
+
+---
+
+## Read Only
+
+View records only
+
+---
+
+# Business Rules
+
+## Rule 1
+
+A Title Review cannot begin until the PSA is fully executed.
+
+---
+
+## Rule 2
+
+Every identified title defect must be classified.
+
+---
+
+## Rule 3
+
+Deals with unresolved Curative items cannot move to Closing.
+
+---
+
+## Rule 4
+
+Only Title Attorneys or Administrators may approve a completed Title Review.
+
+---
+
+## Rule 5
+
+Every review action is recorded in the audit log.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Assign Title Reviewer
+- Due date reminders
+- Curative task creation
+- Document request notifications
+- Status updates
+- Audit logging
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- AI ownership analysis
+- OCR title document extraction
+- Chain of title summaries
+- Risk scoring
+- Curative recommendations
+- Ownership conflict detection
+- Legal description comparison
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/title-reviews | List reviews |
+| GET | /api/title-reviews/{id} | Retrieve review |
+| POST | /api/title-reviews | Create review |
+| PUT | /api/title-reviews/{id} | Update review |
+| PATCH | /api/title-reviews/{id}/status | Update status |
+| DELETE | /api/title-reviews/{id} | Archive review |
+
+---
+
+# Reports
+
+Available reports include:
+
+- Reviews by County
+- Outstanding Curative Items
+- Reviewer Workload
+- Average Review Time
+- Title Defect Summary
+- Approved vs Pending Reviews
+- Risk Analysis
+
+---
+
+# Screenshot
+
+![Title Review](../../assets/screenshots/07-title-review.png)
+
+---
+
+# Future Enhancements
+
+- Texas County Clerk integration
+- Texas Railroad Commission lookup
+- AI chain-of-title analysis
+- GIS parcel viewer
+- Ownership timeline visualization
+- Automated legal description comparison
+- AI title opinion summaries
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- ASSETS.md
+- DOCUMENTS.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md

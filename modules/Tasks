@@ -1,0 +1,414 @@
+# Tasks Module
+
+> Centralized work management system for acquisition, title, curative, closing, and operations teams.
+
+---
+
+# Overview
+
+The Tasks module provides a centralized workspace for managing operational activities across the entire acquisition lifecycle.
+
+Tasks are automatically created by workflows or manually assigned by users to ensure every acquisition progresses efficiently.
+
+Every task is linked to a Deal, Owner, Asset, Campaign, or Closing record, providing complete operational visibility.
+
+---
+
+# Objectives
+
+The Tasks module enables users to:
+
+- Assign operational work
+- Track task completion
+- Prioritize activities
+- Monitor deadlines
+- Coordinate across departments
+- Automate recurring work
+- Maintain accountability
+- Improve operational efficiency
+
+---
+
+# Key Features
+
+## Task Management
+
+Each Task includes:
+
+- Task Number
+- Title
+- Description
+- Related Module
+- Linked Record
+- Assigned User
+- Priority
+- Status
+- Due Date
+- Completion Date
+- Comments
+
+---
+
+## Task Categories
+
+### Acquisition
+
+- Call Owner
+- Send Offer
+- Review PSA
+- Schedule Follow-up
+
+---
+
+### Mail Campaigns
+
+- Prepare Mailing List
+- Print Letters
+- Verify Addresses
+- Process Returned Mail
+
+---
+
+### Title Review
+
+- Review Ownership
+- Verify Legal Description
+- Request County Records
+- Examine Probate
+
+---
+
+### Curative
+
+- Request Affidavit
+- Obtain Probate Documents
+- Correct Ownership
+- Resolve Title Defects
+
+---
+
+### Closing
+
+- Prepare Closing Package
+- Verify Documents
+- Schedule Closing
+- Obtain Signatures
+
+---
+
+### Accounting
+
+- Create Payment Request
+- Verify Settlement
+- Process Wire
+- Reconcile Payment
+
+---
+
+### Administration
+
+- User Setup
+- Data Cleanup
+- Report Generation
+- System Maintenance
+
+---
+
+# Task Statuses
+
+- New
+- Assigned
+- In Progress
+- Waiting
+- Completed
+- Cancelled
+
+---
+
+# Priority Levels
+
+| Priority | Description |
+|----------|-------------|
+| Critical | Immediate attention required |
+| High | Complete today |
+| Medium | Complete this week |
+| Low | Informational or backlog |
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Priority Filter
+- Assigned User
+- Related Module
+- Due Date
+- New Task
+
+---
+
+## Task Table
+
+| Column | Description |
+|---------|-------------|
+| Task | Task title |
+| Module | Related business module |
+| Assigned To | Responsible user |
+| Priority | Task priority |
+| Due Date | Required completion |
+| Status | Current state |
+| Actions | View / Edit |
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart TD
+
+Workflow
+
+Workflow --> TaskCreated
+
+TaskCreated --> Assigned
+
+Assigned --> InProgress
+
+InProgress --> Waiting
+
+Waiting --> Completed
+
+Completed --> Archive
+```
+
+---
+
+# Task Lifecycle
+
+1. Task created
+2. Assigned to user
+3. User accepts task
+4. Work begins
+5. Status updated
+6. Comments added
+7. Task completed
+8. Archived
+
+---
+
+# Automatic Task Creation
+
+Tasks may be generated automatically when:
+
+- PSA is executed
+- Title Review begins
+- Curative Item created
+- Closing scheduled
+- Payment approved
+- Mail returned
+- Campaign shipped
+- Document missing
+
+---
+
+# Related Modules
+
+Tasks integrate with:
+
+- Dashboard
+- Deals
+- Mailer Lists
+- Campaigns
+- Assets
+- Documents
+- Title Review
+- Curative
+- Closing
+- Payments
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+Task
+│
+├── Deal
+├── Campaign
+├── Asset
+├── Owner
+├── Document
+├── Title Review
+├── Curative
+├── Closing
+├── Payment
+└── User
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Assign tasks
+- Reassign tasks
+- Delete tasks
+
+---
+
+## Manager
+
+- Create tasks
+- Assign users
+- View team workload
+
+---
+
+## Team Member
+
+- View assigned tasks
+- Update status
+- Add comments
+- Mark complete
+
+---
+
+## Read Only
+
+- View tasks
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Every task must have an assigned owner.
+
+---
+
+## Rule 2
+
+Critical tasks require a due date.
+
+---
+
+## Rule 3
+
+Completed tasks become read-only.
+
+---
+
+## Rule 4
+
+Cancelled tasks require a reason.
+
+---
+
+## Rule 5
+
+All status changes are recorded in the audit log.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Task assignment
+- Due date reminders
+- Escalation alerts
+- Overdue notifications
+- Daily task digest
+- Dashboard updates
+- Activity logging
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- Smart task prioritization
+- Automatic task generation
+- AI workload balancing
+- Suggested due dates
+- Task summaries
+- Intelligent reminders
+- Natural language task creation
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/tasks | List tasks |
+| GET | /api/tasks/{id} | Retrieve task |
+| POST | /api/tasks | Create task |
+| PUT | /api/tasks/{id} | Update task |
+| PATCH | /api/tasks/{id}/status | Update task status |
+| DELETE | /api/tasks/{id} | Archive task |
+
+---
+
+# Dashboard Widgets
+
+The Dashboard displays:
+
+- My Tasks
+- Overdue Tasks
+- Tasks Due Today
+- Team Workload
+- Recently Completed
+- Critical Tasks
+
+---
+
+# Reports
+
+Available reports include:
+
+- Tasks by User
+- Tasks by Module
+- Overdue Tasks
+- Completed Tasks
+- Team Productivity
+- Average Completion Time
+- SLA Compliance
+
+---
+
+# Screenshot
+
+![Tasks](../../assets/screenshots/12-tasks.png)
+
+---
+
+# Future Enhancements
+
+- Kanban Board
+- Calendar View
+- Gantt Timeline
+- Microsoft Outlook Integration
+- Google Calendar Sync
+- Slack Notifications
+- Mobile Task App
+- Voice Task Creation
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md
+- REPORTS.md

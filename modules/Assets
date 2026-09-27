@@ -1,0 +1,380 @@
+
+# Assets Module
+
+> Centralized repository for mineral properties, leases, wells, units, operators, and ownership information.
+
+---
+
+# Overview
+
+The Assets module serves as the master record for all mineral properties managed within Oil & Gas OS. It provides a centralized location for storing lease, unit, well, operator, county, and production information that supports the acquisition lifecycle.
+
+Every acquisition opportunity references one or more Assets, ensuring consistent property data across Deals, Mailer Lists, Campaigns, Title Review, Curative, Closing, and Payments.
+
+The Assets module acts as the system of record for land and property information.
+
+---
+
+# Objectives
+
+The Assets module enables users to:
+
+- Maintain accurate mineral asset records
+- Organize assets by county and operator
+- Track lease and unit information
+- Store well and API details
+- Link assets to acquisition deals
+- Support title examination
+- Provide reporting by property
+
+---
+
+# Features
+
+## Asset Records
+
+Each Asset includes:
+
+- Asset Name
+- Lease Name
+- Unit Name
+- County
+- State
+- Operator
+- API Number
+- Well Name
+- Acreage
+- Mineral Interest
+- Production Status
+- Asset Status
+- Notes
+
+---
+
+## Asset Types
+
+Supported asset classifications include:
+
+- Oil Lease
+- Gas Lease
+- Mineral Interest
+- Royalty Interest
+- Working Interest
+- Producing Unit
+- Non-Producing Unit
+- Well
+- Tract
+
+---
+
+## Production Status
+
+Available statuses:
+
+- Producing
+- Shut-In
+- Drilling
+- Permitted
+- Plugged
+- Abandoned
+- Unknown
+
+---
+
+## Asset Status
+
+Lifecycle statuses include:
+
+- Active
+- Pending Acquisition
+- Under Review
+- Sold
+- Archived
+
+---
+
+# User Interface
+
+## Header
+
+- Search Assets
+- Filter by Status
+- Filter by County
+- Filter by Operator
+- New Asset Button
+
+---
+
+## Data Grid
+
+| Column | Description |
+|---------|-------------|
+| Lease | Lease name |
+| Unit | Unit name |
+| County | County location |
+| Operator | Producing operator |
+| API | API number |
+| Acreage | Total acreage |
+| Well Status | Production status |
+| Actions | View / Edit / Delete |
+
+---
+
+# Asset Relationships
+
+```text
+Asset
+│
+├── Owners
+├── Deals
+├── Mailer Records
+├── Campaigns
+├── PSA
+├── Documents
+├── Title Review
+├── Curative
+├── Closing
+└── Payments
+```
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart LR
+
+AssetCreated
+--> OwnershipResearch
+
+OwnershipResearch
+--> MailerCampaign
+
+MailerCampaign
+--> Deal
+
+Deal
+--> PSA
+
+PSA
+--> TitleReview
+
+TitleReview
+--> Curative
+
+Curative
+--> Closing
+
+Closing
+--> Payment
+
+Payment
+--> Completed
+```
+
+---
+
+# Asset Lifecycle
+
+1. Import property data
+2. Verify ownership
+3. Assign county
+4. Assign operator
+5. Link owners
+6. Generate mail campaign
+7. Convert to Deal
+8. Execute PSA
+9. Complete acquisition
+10. Archive if inactive
+
+---
+
+# Related Modules
+
+The Assets module integrates with:
+
+- Dashboard
+- Deals
+- Mailer Lists
+- Campaigns
+- Documents
+- Title Review
+- Curative
+- Closing
+- Payments
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+Asset
+│
+├── County
+├── Operator
+├── Lease
+├── Unit
+├── Well
+├── Owner
+├── Deal
+├── PSA
+└── Document
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+
+---
+
+## Land Team
+
+- Create assets
+- Edit assets
+- Assign ownership
+- Upload documents
+
+---
+
+## Acquisition Team
+
+- View assets
+- Link deals
+- Add notes
+
+---
+
+## Closing Team
+
+- View only
+- Access closing information
+
+---
+
+## Read Only
+
+- View records
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Each Asset must belong to a County.
+
+---
+
+## Rule 2
+
+Each Asset may contain multiple Owners.
+
+---
+
+## Rule 3
+
+Each Asset may be associated with multiple Deals over time.
+
+---
+
+## Rule 4
+
+API Numbers must be unique where applicable.
+
+---
+
+## Rule 5
+
+Archived Assets cannot be modified without Administrator approval.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- County assignment
+- Duplicate asset detection
+- API validation
+- Owner synchronization
+- Deal linking
+- Activity logging
+- Audit trail updates
+
+---
+
+# AI Opportunities
+
+Future AI capabilities include:
+
+- AI property summaries
+- Lease risk analysis
+- Production trend analysis
+- Operator insights
+- Ownership conflict detection
+- Asset similarity matching
+- GIS-assisted property search
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/assets | List assets |
+| GET | /api/assets/{id} | Retrieve asset |
+| POST | /api/assets | Create asset |
+| PUT | /api/assets/{id} | Update asset |
+| DELETE | /api/assets/{id} | Archive asset |
+| PATCH | /api/assets/{id}/status | Update asset status |
+
+---
+
+# Reporting
+
+Available reports include:
+
+- Assets by County
+- Assets by Operator
+- Producing vs Non-Producing
+- Acreage Summary
+- Acquisition Pipeline by Asset
+- Asset Activity Report
+- Operator Portfolio
+
+---
+
+# Screenshot
+
+![Assets](../../assets/screenshots/05-assets.png)
+
+---
+
+# Future Enhancements
+
+- Texas Railroad Commission (RRC) integration
+- GIS map viewer
+- Parcel boundary visualization
+- Production history dashboard
+- Automated operator synchronization
+- Enverus integration
+- Well production analytics
+- Interactive county maps
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- DEALS.md
+- MAILER_LISTS.md
+- CAMPAIGNS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md

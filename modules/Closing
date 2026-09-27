@@ -1,0 +1,361 @@
+# Closing Module
+
+> Coordinate, approve, and complete mineral acquisition transactions from title approval through final funding.
+
+---
+
+# Overview
+
+The Closing module manages the final phase of the mineral acquisition lifecycle.
+
+Once Title Review and Curative requirements have been completed, the Closing module coordinates document verification, settlement preparation, payment authorization, and final acquisition recording.
+
+The module provides a standardized closing process, ensuring every transaction is legally complete, financially approved, and fully documented before ownership is transferred.
+
+---
+
+# Objectives
+
+The Closing module enables users to:
+
+- Coordinate acquisition closings
+- Verify closing readiness
+- Assemble closing packages
+- Track closing progress
+- Manage settlement approvals
+- Authorize payments
+- Complete acquisitions
+- Maintain a complete audit trail
+
+---
+
+# Key Features
+
+## Closing Management
+
+Each Closing Record contains:
+
+- Closing Number
+- Deal
+- Owner
+- Asset
+- Closing Coordinator
+- Scheduled Closing Date
+- Closing Status
+- Settlement Amount
+- Funding Status
+- Notes
+
+---
+
+## Closing Checklist
+
+Every closing follows a standardized checklist.
+
+### Required Items
+
+- Executed Purchase & Sale Agreement
+- Approved Title Review
+- Completed Curative
+- Verified Ownership
+- Closing Statement
+- Wire Instructions / Mailing Address
+- Payment Approval
+- Signed Closing Documents
+
+Closing cannot proceed until all required items are complete.
+
+---
+
+## Closing Statuses
+
+- Pending
+- Ready for Closing
+- Scheduled
+- Awaiting Funding
+- Closed
+- Cancelled
+
+---
+
+## Settlement Information
+
+Each Closing tracks:
+
+- Purchase Price
+- Adjustments
+- Taxes
+- Fees
+- Net Payment
+- Funding Method
+- Payment Reference
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- Closing Coordinator Filter
+- New Closing
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Closing ID | Unique closing number |
+| Deal | Linked acquisition |
+| Owner | Mineral owner |
+| Scheduled Date | Planned closing |
+| Coordinator | Assigned user |
+| Funding | Payment status |
+| Closing Status | Current stage |
+| Actions | View / Edit |
+
+---
+
+# Closing Workflow
+
+```mermaid
+flowchart TD
+
+TitleApproved
+
+TitleApproved
+--> CurativeCompleted
+
+CurativeCompleted
+--> ClosingCreated
+
+ClosingCreated
+--> ClosingChecklist
+
+ClosingChecklist
+--> SettlementPrepared
+
+SettlementPrepared
+--> PaymentApproval
+
+PaymentApproval
+--> Funding
+
+Funding
+--> AcquisitionCompleted
+
+AcquisitionCompleted
+--> Archive
+```
+
+---
+
+# Closing Lifecycle
+
+1. Title Approved
+2. Curative Completed
+3. Create Closing Record
+4. Verify Checklist
+5. Prepare Settlement
+6. Obtain Final Approval
+7. Authorize Payment
+8. Release Funds
+9. Mark Acquisition Closed
+10. Archive Closing Package
+
+---
+
+# Related Modules
+
+The Closing module integrates with:
+
+- Deals
+- Assets
+- Documents
+- Title Review
+- Curative
+- Payments
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+Closing
+│
+├── Deal
+├── Owner
+├── Asset
+├── Title Review
+├── Curative
+├── Payment
+├── Documents
+├── Settlement
+└── User
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Approve closings
+- Release transactions
+
+---
+
+## Closing Coordinator
+
+- Create closings
+- Update checklist
+- Upload documents
+- Request approvals
+
+---
+
+## Accounting
+
+- Review settlement
+- Approve funding
+- Release payment
+
+---
+
+## Acquisition Manager
+
+- View closing status
+- Approve exceptions
+
+---
+
+## Read Only
+
+- View records
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Closing cannot begin until Title Review is approved.
+
+---
+
+## Rule 2
+
+All Curative Items must be completed before funding.
+
+---
+
+## Rule 3
+
+Settlement amounts must match the approved Purchase & Sale Agreement.
+
+---
+
+## Rule 4
+
+Payment authorization requires Accounting approval.
+
+---
+
+## Rule 5
+
+Closing documents become read-only after completion.
+
+---
+
+## Rule 6
+
+Every approval is recorded in the audit log.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Closing checklist generation
+- Closing readiness validation
+- Funding notifications
+- Coordinator reminders
+- Payment request creation
+- Audit logging
+- Dashboard updates
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- Closing readiness scoring
+- Missing document detection
+- Settlement verification
+- AI-generated closing summaries
+- Risk analysis
+- Timeline prediction
+- Funding validation
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/closings | List closings |
+| GET | /api/closings/{id} | Retrieve closing |
+| POST | /api/closings | Create closing |
+| PUT | /api/closings/{id} | Update closing |
+| PATCH | /api/closings/{id}/status | Update status |
+| DELETE | /api/closings/{id} | Archive closing |
+
+---
+
+# Reports
+
+Available reports include:
+
+- Pending Closings
+- Scheduled Closings
+- Closing Pipeline
+- Funding Status
+- Average Closing Time
+- Closing by County
+- Closing by Coordinator
+- Settlement Summary
+
+---
+
+# Screenshot
+
+![Closing](../../assets/screenshots/09-closing.png)
+
+---
+
+# Future Enhancements
+
+- DocuSign integration
+- Automated closing packages
+- Digital settlement statements
+- AI closing assistant
+- Calendar synchronization
+- Secure owner portal
+- Automated post-closing notifications
+- Funding dashboard
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- PAYMENTS.md
+- DOCUMENTS.md

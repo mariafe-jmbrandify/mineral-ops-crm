@@ -1,0 +1,415 @@
+# Reports Module
+
+> Business intelligence, operational analytics, and executive reporting for mineral acquisition operations.
+
+---
+
+# Overview
+
+The Reports module provides real-time operational insights across every area of Oil & Gas OS.
+
+It consolidates information from Deals, Mailer Lists, Campaigns, Assets, Title Review, Curative, Closing, Payments, and Documents into actionable dashboards and reports.
+
+Reports help acquisition teams monitor performance, identify bottlenecks, forecast revenue, and measure operational efficiency.
+
+---
+
+# Objectives
+
+The Reports module enables users to:
+
+- Monitor acquisition performance
+- Analyze campaign effectiveness
+- Track deal pipeline health
+- Measure closing performance
+- Review financial metrics
+- Identify operational bottlenecks
+- Support executive decision-making
+- Export business reports
+
+---
+
+# Key Features
+
+## Executive Dashboard
+
+Provides a high-level summary of:
+
+- Total Active Deals
+- Closed Acquisitions
+- Pipeline Value
+- Monthly Purchase Volume
+- Campaign Performance
+- Payment Activity
+- Outstanding Curative Items
+- Closing Forecast
+
+---
+
+## Deal Reports
+
+Available reports include:
+
+- Active Deals
+- Closed Deals
+- Deals by County
+- Deals by Operator
+- Deals by Acquisition Manager
+- Pipeline Aging
+- Lost Deals
+
+---
+
+## Campaign Reports
+
+Track campaign performance:
+
+- Campaign ROI
+- Response Rate
+- PSA Conversion
+- Cost per Response
+- Cost per Acquisition
+- Touch Performance
+- County Performance
+
+---
+
+## Asset Reports
+
+Analyze mineral assets by:
+
+- County
+- Operator
+- Lease
+- Unit
+- Well Status
+- Acreage
+- Production Status
+
+---
+
+## Title Reports
+
+Review:
+
+- Pending Reviews
+- Completed Reviews
+- Outstanding Defects
+- Reviews by Attorney
+- Average Review Time
+
+---
+
+## Curative Reports
+
+Track:
+
+- Open Curative Items
+- Aging Curative
+- Critical Curative
+- Curative by County
+- Curative by Attorney
+
+---
+
+## Closing Reports
+
+Monitor:
+
+- Scheduled Closings
+- Average Closing Time
+- Closing Pipeline
+- Funding Status
+- Closing Volume
+
+---
+
+## Payment Reports
+
+View:
+
+- Pending Payments
+- Approved Payments
+- Payments by Month
+- Payment Methods
+- Reconciliation Summary
+- Financial Totals
+
+---
+
+# Dashboard Widgets
+
+The reporting dashboard includes:
+
+- KPI Cards
+- Trend Charts
+- Pipeline Charts
+- County Maps
+- Activity Timeline
+- Recent Transactions
+- Upcoming Closings
+- Outstanding Tasks
+
+---
+
+# User Interface
+
+## Header
+
+- Report Search
+- Date Range
+- Export
+- Filters
+
+---
+
+## Available Filters
+
+Users may filter reports by:
+
+- Date Range
+- County
+- Operator
+- Acquisition Manager
+- Campaign
+- Deal Status
+- Closing Status
+- Payment Status
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart LR
+
+Deals
+
+Deals --> Reports
+
+Campaigns --> Reports
+
+Assets --> Reports
+
+TitleReview --> Reports
+
+Curative --> Reports
+
+Closing --> Reports
+
+Payments --> Reports
+
+Reports --> Dashboard
+
+Dashboard --> Executives
+```
+
+---
+
+# Report Categories
+
+| Category | Description |
+|-----------|-------------|
+| Executive | Company performance |
+| Operations | Daily activity |
+| Financial | Payments and acquisitions |
+| Campaign | Marketing performance |
+| Legal | Title and Curative |
+| Closing | Closing operations |
+| Compliance | Audit reports |
+
+---
+
+# Export Formats
+
+Supported exports:
+
+- PDF
+- Excel (.xlsx)
+- CSV
+- JSON
+
+---
+
+# Scheduled Reports
+
+Users may schedule reports:
+
+- Daily
+- Weekly
+- Monthly
+- Quarterly
+
+Reports may be delivered via:
+
+- Email
+- Shared Drive
+- Dashboard
+
+---
+
+# Related Modules
+
+Reports aggregate data from:
+
+- Dashboard
+- Deals
+- Mailer Lists
+- Campaigns
+- Assets
+- Documents
+- Title Review
+- Curative
+- Closing
+- Payments
+
+---
+
+# Database Relationships
+
+```text
+Reports
+│
+├── Deals
+├── Campaigns
+├── Assets
+├── Title Review
+├── Curative
+├── Closing
+├── Payments
+├── Documents
+└── Users
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+- Build reports
+- Export
+
+---
+
+## Executive
+
+- View executive reports
+- Export reports
+
+---
+
+## Operations Manager
+
+- Operational reports
+- Pipeline reports
+
+---
+
+## Accounting
+
+- Financial reports
+- Payment reports
+
+---
+
+## Read Only
+
+- View reports
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Reports only display records users are authorized to access.
+
+---
+
+## Rule 2
+
+Financial reports require Accounting or Administrator permissions.
+
+---
+
+## Rule 3
+
+Archived records remain available for historical reporting.
+
+---
+
+## Rule 4
+
+Exports are logged for audit purposes.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Scheduled report generation
+- Email delivery
+- KPI updates
+- Dashboard refresh
+- Monthly executive reports
+- Audit logging
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- Executive summaries
+- Trend analysis
+- Revenue forecasting
+- Pipeline health scoring
+- County opportunity analysis
+- Natural language reporting
+- AI-generated charts
+- Predictive analytics
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/reports | List reports |
+| GET | /api/reports/dashboard | Dashboard metrics |
+| GET | /api/reports/export | Export report |
+| POST | /api/reports/schedule | Schedule report |
+
+---
+
+# Screenshot
+
+![Reports](../../assets/screenshots/11-reports.png)
+
+---
+
+# Future Enhancements
+
+- Power BI integration
+- Tableau integration
+- Interactive GIS reporting
+- AI executive briefing
+- Predictive acquisition analytics
+- Real-time KPI dashboards
+- Custom report builder
+- Embedded charts
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- DEALS.md
+- CAMPAIGNS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md

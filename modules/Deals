@@ -1,0 +1,334 @@
+# Deals Module
+
+> Core acquisition pipeline for managing mineral purchase opportunities from initial prospect to completed acquisition.
+
+---
+
+# Overview
+
+The Deals module is the operational heart of Oil & Gas OS. It manages the complete lifecycle of every mineral acquisition opportunity, allowing acquisition teams to track progress, collaborate across departments, and maintain a complete audit trail from first contact through closing.
+
+Each Deal represents a potential acquisition linked to one or more mineral owners, assets, campaigns, and supporting documents.
+
+---
+
+# Objectives
+
+The Deals module enables users to:
+
+- Track acquisition opportunities
+- Manage Purchase & Sale Agreements (PSAs)
+- Monitor due diligence progress
+- Coordinate title review and curative work
+- Assign ownership and responsibilities
+- Record communication history
+- Prepare transactions for closing
+- Provide a complete audit trail
+
+---
+
+# Features
+
+## Deal Pipeline
+
+Every deal progresses through a standardized acquisition workflow.
+
+Pipeline Stages
+
+- Prospecting
+- Mailer Sent
+- Negotiating
+- PSA Sent
+- Due Diligence
+- Closing
+- Closed
+- Dead
+
+Each stage reflects the operational status of the acquisition and drives downstream workflows.
+
+---
+
+## Deal Information
+
+Each Deal stores:
+
+- Owner(s)
+- Lease / Unit
+- County
+- Operator
+- Total Offer
+- PSA Status
+- Due Diligence Flag
+- Last Contact Date
+- Assigned User
+- Notes
+- Activity Timeline
+
+---
+
+## Search & Filters
+
+Users can search by:
+
+- Owner Name
+- Lease Name
+- County
+- Operator
+
+Available Filters
+
+- All Statuses
+- Prospecting
+- Mailer Sent
+- Negotiating
+- PSA Sent
+- Due Diligence
+- Closing
+- Closed
+- Dead
+
+---
+
+## Actions
+
+Each Deal supports the following actions:
+
+- View Deal
+- Edit Deal
+- Upload Documents
+- Create PSA
+- Add Note
+- Assign User
+- Flag Due Diligence
+- Move Pipeline Stage
+- Archive Deal
+
+---
+
+# User Interface
+
+The Deals screen includes:
+
+### Header
+
+- Search
+- Status Filter
+- New Deal Button
+
+### Data Grid
+
+| Column | Description |
+|---------|-------------|
+| Owner | Mineral owner(s) |
+| Lease / Unit | Associated lease or unit |
+| County | County location |
+| Operator | Producing operator |
+| Total Offer | Offer amount |
+| Stage | Current pipeline stage |
+| DD Flag | Due diligence indicator |
+| Last Contact | Most recent communication |
+| Actions | Edit / Delete |
+
+---
+
+# Business Workflow
+
+```mermaid
+flowchart LR
+
+Prospecting
+--> MailerSent
+--> Negotiating
+--> PSASent
+--> DueDiligence
+--> Closing
+--> Closed
+
+DueDiligence --> Curative
+
+Curative --> Closing
+
+Negotiating --> Dead
+```
+
+---
+
+# Deal Lifecycle
+
+1. Lead imported
+2. Owner contacted
+3. Offer discussed
+4. PSA generated
+5. PSA executed
+6. Title Review
+7. Curative (if required)
+8. Closing Package
+9. Payment Request
+10. Acquisition Completed
+
+---
+
+# Related Modules
+
+Deals interact with:
+
+- Dashboard
+- Mailer Lists
+- Campaigns
+- Assets
+- Documents
+- Title Review
+- Curative
+- Closing
+- Payments
+
+---
+
+# Database Relationships
+
+```text
+Deal
+│
+├── Owner
+├── Campaign
+├── Mailer Record
+├── Asset
+├── PSA
+├── Documents
+├── Title Review
+├── Curative
+├── Closing
+└── Payment
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+- Full access
+
+## Acquisition Manager
+
+- Create
+- Edit
+- Assign
+- Close
+
+## Landman
+
+- View
+- Edit
+- Add Notes
+
+## Closing Coordinator
+
+- View
+- Update Closing Status
+
+## Read Only
+
+- View only
+
+---
+
+# Business Rules
+
+## Rule 1
+
+A Deal cannot move to **Closing** until:
+
+- PSA Executed
+- Title Review Complete
+
+---
+
+## Rule 2
+
+If Due Diligence is flagged:
+
+- Closing is blocked
+- Notification sent to assigned user
+
+---
+
+## Rule 3
+
+Closed Deals become read-only except for Administrators.
+
+---
+
+## Rule 4
+
+Dead Deals remain searchable but are excluded from active reporting.
+
+---
+
+# Automations
+
+Automatic actions include:
+
+- Stage change notifications
+- Due diligence alerts
+- Reminder emails
+- Task creation
+- Activity logging
+- Audit trail updates
+
+---
+
+# AI Opportunities
+
+Future AI functionality:
+
+- Deal risk scoring
+- Pipeline prioritization
+- Communication summaries
+- Owner sentiment analysis
+- Next-best action recommendations
+- AI-generated follow-up tasks
+- Deal health scoring
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/deals | List deals |
+| GET | /api/deals/{id} | Retrieve deal |
+| POST | /api/deals | Create deal |
+| PUT | /api/deals/{id} | Update deal |
+| DELETE | /api/deals/{id} | Archive deal |
+| PATCH | /api/deals/{id}/stage | Update pipeline stage |
+
+---
+
+# Screenshot
+
+![Deals](../../assets/screenshots/02-deals.png)
+
+---
+
+# Future Enhancements
+
+- Kanban pipeline view
+- Bulk stage updates
+- GIS map integration
+- AI offer recommendations
+- Timeline visualization
+- SMS communication history
+- Electronic signature integration
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- MAILER_LISTS.md
+- CAMPAIGNS.md
+- TITLE_REVIEW.md
+- CURATIVE.md
+- CLOSING.md
+- PAYMENTS.md

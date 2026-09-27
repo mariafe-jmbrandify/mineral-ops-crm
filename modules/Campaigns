@@ -1,0 +1,403 @@
+# Campaigns Module
+
+> Manage outbound mineral acquisition campaigns from planning through completion.
+
+---
+
+# Overview
+
+The Campaigns module is responsible for organizing, scheduling, executing, and measuring direct mail acquisition campaigns.
+
+A Campaign groups thousands of Mailer Records into a single outbound mailing effort targeted to specific counties, leases, operators, or acquisition strategies.
+
+Each campaign may contain multiple touches (Touch #1, Touch #2, etc.) to improve owner response rates and maximize acquisition opportunities.
+
+---
+
+# Objectives
+
+The Campaigns module enables users to:
+
+- Plan acquisition campaigns
+- Group owners into mailing batches
+- Schedule campaign touches
+- Track mailing progress
+- Monitor campaign costs
+- Measure ROI
+- Generate new acquisition opportunities
+
+---
+
+# Features
+
+## Campaign Management
+
+Each Campaign includes:
+
+- Campaign Name
+- Coverage Area
+- Touch Number
+- Scheduled Ship Date
+- Recipient Count
+- Purchase Price
+- Expected Offer Value
+- Campaign Status
+- Notes
+
+---
+
+## Campaign Coverage
+
+Campaigns may target:
+
+- Counties
+- Leases
+- Operators
+- Producing Fields
+- Geographic Regions
+- Custom Owner Lists
+
+Example:
+
+```
+Lavaca
+Newton
+Fayette
+Rusk
+Panola
+Smith
+Angelina
+Nacogdoches
+```
+
+---
+
+## Touch Management
+
+Each campaign may contain multiple touches.
+
+Example
+
+Touch 1
+
+Initial Offer Letter
+
+↓
+
+Touch 2
+
+Reminder Letter
+
+↓
+
+Touch 3
+
+Final Offer Letter
+
+---
+
+## Campaign Statuses
+
+### Planned
+
+Campaign created but not scheduled.
+
+---
+
+### Upcoming
+
+Scheduled for mailing.
+
+---
+
+### Shipped
+
+Letters mailed.
+
+---
+
+### Delivered
+
+Campaign completed.
+
+---
+
+### Complete
+
+Campaign archived.
+
+---
+
+# User Interface
+
+## Header
+
+- Search
+- Status Filter
+- New Campaign Button
+
+---
+
+## Table Columns
+
+| Column | Description |
+|---------|-------------|
+| Campaign | Campaign Name |
+| Coverage | Counties / Regions |
+| Touch # | Mailing sequence |
+| Recipients | Number of records |
+| Ship Date | Scheduled mailing |
+| Status | Campaign status |
+| Purchase Price | Mailing cost |
+| Profit | Campaign ROI |
+| Actions | Edit / Delete |
+
+---
+
+# Campaign Workflow
+
+```mermaid
+flowchart LR
+
+CampaignCreated
+--> MailerSelection
+
+MailerSelection
+--> PrintQueue
+
+PrintQueue
+--> Shipped
+
+Shipped
+--> Delivered
+
+Delivered
+--> Responses
+
+Responses
+--> Deals
+
+Deals
+--> PSA
+
+PSA
+--> Closing
+```
+
+---
+
+# Campaign Lifecycle
+
+1. Create Campaign
+2. Select Mailer Records
+3. Schedule Touch
+4. Print Letters
+5. Ship Campaign
+6. Track Delivery
+7. Record Responses
+8. Convert to Deals
+9. Measure ROI
+
+---
+
+# Campaign Performance
+
+The module tracks:
+
+- Total Recipients
+- Delivered Letters
+- Response Rate
+- PSA Rate
+- Closed Deals
+- Total Acquisition Value
+- Campaign Cost
+- Return on Investment (ROI)
+
+---
+
+# Related Modules
+
+Campaigns integrate with:
+
+- Mailer Lists
+- Deals
+- Dashboard
+- Documents
+- Reports
+
+---
+
+# Database Relationships
+
+```text
+Campaign
+│
+├── Mailer Records
+├── Deals
+├── Documents
+├── Tasks
+├── Notes
+└── Users
+```
+
+---
+
+# User Permissions
+
+## Administrator
+
+Full access
+
+---
+
+## Marketing
+
+Create
+
+Edit
+
+Schedule
+
+Complete
+
+---
+
+## Acquisition Team
+
+View
+
+Track Responses
+
+Create Deals
+
+---
+
+## Read Only
+
+View campaigns
+
+---
+
+# Business Rules
+
+## Rule 1
+
+Each Campaign must contain at least one Mailer Record.
+
+---
+
+## Rule 2
+
+A Mailer Record may only belong to one active Campaign.
+
+---
+
+## Rule 3
+
+Completed Campaigns become read-only.
+
+---
+
+## Rule 4
+
+Campaign cost is automatically calculated.
+
+Formula
+
+```
+Printing
++ Postage
++ Processing
++ Miscellaneous
+=
+Total Campaign Cost
+```
+
+---
+
+## Rule 5
+
+ROI updates automatically whenever a linked Deal closes.
+
+---
+
+# Automations
+
+Automatic processes include:
+
+- Campaign scheduling
+- Recipient counting
+- Mailing status updates
+- Response tracking
+- Deal creation
+- ROI calculations
+- Dashboard updates
+
+---
+
+# AI Opportunities
+
+Future AI capabilities:
+
+- Optimal mailing date prediction
+- County targeting recommendations
+- Campaign profitability forecasting
+- Response probability scoring
+- AI-generated campaign summaries
+- Budget optimization
+- Geographic opportunity analysis
+
+---
+
+# API Endpoints
+
+| Method | Endpoint | Description |
+|---------|----------|-------------|
+| GET | /api/campaigns | List campaigns |
+| GET | /api/campaigns/{id} | Retrieve campaign |
+| POST | /api/campaigns | Create campaign |
+| PUT | /api/campaigns/{id} | Update campaign |
+| DELETE | /api/campaigns/{id} | Archive campaign |
+| PATCH | /api/campaigns/{id}/status | Update status |
+
+---
+
+# Reporting
+
+Campaign Reports include:
+
+- Campaign Performance
+- Cost Summary
+- Response Summary
+- County Performance
+- ROI Analysis
+- Touch Effectiveness
+
+---
+
+# Screenshot
+
+![Campaigns](../../assets/screenshots/04-campaigns.png)
+
+---
+
+# Future Enhancements
+
+- USPS Integration
+- Click2Mail Integration
+- Batch Print Wizard
+- Geographic Campaign Maps
+- AI Campaign Builder
+- Campaign Templates
+- Multi-state Campaign Support
+- Budget Forecasting
+- A/B Campaign Testing
+
+---
+
+# Related Documentation
+
+- DASHBOARD.md
+- DEALS.md
+- MAILER_LISTS.md
+- REPORTS.md

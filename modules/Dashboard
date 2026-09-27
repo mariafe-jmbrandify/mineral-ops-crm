@@ -1,0 +1,241 @@
+# Dashboard Module
+
+> Operational command center for Oil & Gas OS.
+
+---
+
+# Overview
+
+The Dashboard provides a real-time overview of acquisition activity across the organization.
+
+It consolidates operational metrics, campaign schedules, flagged due diligence items, and deal pipeline health into a single workspace.
+
+The Dashboard serves as the default landing page after user authentication.
+
+---
+
+# Objectives
+
+The Dashboard enables users to:
+
+- Monitor active acquisitions
+- Review campaign schedules
+- Identify blocked deals
+- Track pipeline value
+- Measure operational performance
+- Surface high-priority tasks
+
+---
+
+# Key Metrics
+
+## Open Deals
+
+Displays:
+
+- Number of active acquisitions
+- Estimated pipeline value
+
+Example:
+
+238 Open Deals
+
+$6,863,946 Pipeline Value
+
+---
+
+## Closed Deals
+
+Displays:
+
+- Closed transactions
+- Total acquisition value
+
+Example:
+
+535 Closed Deals
+
+$17,991,474 Acquired
+
+---
+
+## Flagged Due Diligence
+
+Shows deals requiring attention.
+
+Examples:
+
+- Missing title documents
+- Probate issues
+- Ownership discrepancies
+- Curative requirements
+
+---
+
+## Mailer Records
+
+Displays
+
+- Total mail records
+- Campaign count
+- Active touches
+
+---
+
+# Widgets
+
+## Upcoming Campaign Touches
+
+Displays
+
+- Campaign
+- Touch Number
+- Counties
+- Scheduled Date
+- Status
+
+Statuses
+
+- Upcoming
+- Scheduled
+- Completed
+
+---
+
+## Flagged Deals
+
+Displays
+
+- Owner
+- Issue
+- County
+- Priority
+
+Examples
+
+Missing Probate
+
+Ownership Conflict
+
+Expired PSA
+
+Curative Required
+
+---
+
+# User Actions
+
+Users may
+
+- View Deal
+- View Campaign
+- Open Owner
+- Review Flag
+- Create Task
+
+---
+
+# Dashboard Workflow
+
+```mermaid
+flowchart TD
+
+Login
+
+Login --> Dashboard
+
+Dashboard --> KPIs
+
+Dashboard --> Campaigns
+
+Dashboard --> FlaggedDeals
+
+Dashboard --> RecentActivity
+
+Dashboard --> Tasks
+
+FlaggedDeals --> Deal
+
+Campaigns --> Campaign
+
+Deal --> PSA
+
+Deal --> TitleReview
+
+Deal --> Closing
+```
+
+---
+
+# Data Sources
+
+Dashboard pulls information from
+
+- Deals
+- Campaigns
+- Mailers
+- Title Review
+- Closing
+- Payments
+- Tasks
+
+---
+
+# Related Database Tables
+
+Deals
+
+Campaigns
+
+Mailers
+
+Tasks
+
+Flags
+
+Users
+
+---
+
+# User Permissions
+
+Administrator
+
+Operations
+
+Landman
+
+Closing Coordinator
+
+Executive
+
+Read-only
+
+---
+
+# AI Opportunities
+
+Future AI capabilities
+
+- Daily Briefing
+- Risk Detection
+- Deal Prioritization
+- Campaign Recommendations
+- Pipeline Forecasting
+- AI Summary
+- Natural Language Search
+
+---
+
+# Screenshot
+
+![Dashboard](../../assets/screenshots/01-dashboard.png)
+
+---
+
+# Related Documentation
+
+- DEALS.md
+- CAMPAIGNS.md
+- TITLE_REVIEW.md
+- CLOSING.md
